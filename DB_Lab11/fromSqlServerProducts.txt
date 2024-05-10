@@ -1,0 +1,6 @@
+product_id,product_name,category_id,price,description,image_url,quantity,date
+10,Рубашка с короткими рукавами,2,25,Мужская рубашка с короткими рукавами,https://example.com/images/short-sleeve-shirt.jpg,17,2024-04-16
+15,Куртка кожаная,5,150,Мужская кожаная куртка с молнией,https://example.com/images/leather-jacket.jpg,10,2024-04-16
+16,Куртка ветровка,5,80,Женская ветровка с капюшоном,https://example.com/images/windbreaker-jacket.jpg,15,2024-04-16
+17,Кофта с высоким воротником,6,40,Мужская кофта с высоким воротником,https://example.com/images/turtleneck-sweater.jpg,20,2024-04-16
+18,Кофта с карманами,6,30,Женская кофта с карманами,https://example.com/images/pocket-sweater.jpg,16,2024-04-16

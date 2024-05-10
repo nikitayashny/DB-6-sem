@@ -1,0 +1,1 @@
+sqlldr SHOP_ADMIN/1234@SHOP_PDB control=C:\bstu_labs\labs-6-sem\db\DB_Lab11\loader.ctl log=C:\bstu_labs\labs-6-sem\db\DB_Lab11\loader.log

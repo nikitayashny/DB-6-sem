@@ -1,0 +1,6 @@
+product_id,product_name,category_id,price,image_url,quantity,date
+19,товар 1,2,25,https://example.com/images/short-sleeve-shirt.jpg,17,2024-04-16
+20,товар 2,5,150,,https://example.com/images/leather-jacket.jpg,10,2024-04-16
+21,товар 3,5,80,https://example.com/images/windbreaker-jacket.jpg,15,2024-04-16
+22,товар 4,6,40,https://example.com/images/turtleneck-sweater.jpg,20,2024-04-16
+23,товар 5,6,30,https://example.com/images/pocket-sweater.jpg,16,2024-04-16

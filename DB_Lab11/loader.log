@@ -1,0 +1,63 @@
+
+SQL*Loader: Release 21.0.0.0.0 - Production on Thu Apr 18 13:40:15 2024
+Version 21.3.0.0.0
+
+Copyright (c) 1982, 2021, Oracle and/or its affiliates.  All rights reserved.
+
+Control File:   C:\bstu_labs\labs-6-sem\db\DB_Lab11\loader.ctl
+Data File:      C:\bstu_labs\labs-6-sem\db\DB_Lab11\input_oracle.txt
+  Bad File:     C:\bstu_labs\labs-6-sem\db\DB_Lab11\input_oracle.bad
+  Discard File:  none specified
+ 
+ (Allow all discards)
+
+Number to load: ALL
+Number to skip: 0
+Errors allowed: 50
+Bind array:     250 rows, maximum of 1048576 bytes
+Continuation:    none specified
+Path used:      Conventional
+
+Table PRODUCTS, loaded from every logical record.
+Insert option in effect for this table: APPEND
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+PRODUCT_ID                          FIRST     *   ,       CHARACTER            
+PRODUCT_NAME                         NEXT     *   ,       CHARACTER            
+    SQL string for column : "UPPER(:product_name)"
+CATEGORY_ID                          NEXT     *   ,       CHARACTER            
+PRICE                                NEXT     *   ,       CHARACTER            
+    SQL string for column : "ROUND(:price, 1)"
+DESCRIPTION                          NEXT     *   ,       CHARACTER            
+    SQL string for column : "UPPER(:description)"
+IMAGE_URL                            NEXT     *   ,       CHARACTER            
+    SQL string for column : "UPPER(:image_url)"
+QUANTITY                             NEXT     *   ,       CHARACTER            
+    SQL string for column : "ROUND(:quantity, 1)"
+DATE_COLUMN                          NEXT     *   ,       DATE DD-MM-YYYY      
+
+Record 1: Rejected - Error on table PRODUCTS.
+ORA-00001: unique constraint (SHOP_ADMIN.SYS_C008224) violated
+
+
+Table PRODUCTS:
+  4 Rows successfully loaded.
+  1 Row not loaded due to data errors.
+  0 Rows not loaded because all WHEN clauses were failed.
+  0 Rows not loaded because all fields were null.
+
+
+Space allocated for bind array:                 516000 bytes(250 rows)
+Read   buffer bytes: 1048576
+
+Total logical records skipped:          0
+Total logical records read:             5
+Total logical records rejected:         1
+Total logical records discarded:        0
+
+Run began on Thu Apr 18 13:40:15 2024
+Run ended on Thu Apr 18 13:40:20 2024
+
+Elapsed time was:     00:00:04.89
+CPU time was:         00:00:00.22
