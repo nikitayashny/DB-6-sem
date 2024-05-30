@@ -1,0 +1,64 @@
+
+-- 3  вставка обновление
+db.products.insertOne({ product: "Samsung Galaxy S22", price: 1200 })
+db.services.updateOne(
+  { product: "Apple iPhone 15" },
+  { 
+    $set: { 
+      price: 1600,
+    }
+  }
+);
+db.orders.insertOne({date: new Date('2024-05-20'), products: ["Apple iPhone 15", "Samsung Galaxy S22"], price: 2800, status: "notComplete"})
+
+-- 4  выборки (условные операторы, операторы работы с массивами, $exists, $type, $regex)
+db.orders.find({ date: new Date('2024-05-20') }) 
+db.orders.find({ products: { $all: ["Apple iPhone 15", "Samsung Galaxy S22"] } })
+db.orders.find({ date: { $exists: true } })
+db.orders.find({ date: { $type: "date" } })
+db.products.find({ products: { $regex: /^Apple/ } })
+
+-- 5  проекции
+db.orders.find({}, { products: 1, _id: 0 })
+
+-- 6 count
+db.products.countDocuments({});
+db.orders.countDocuments({ products: "Apple iPhone 15" })
+
+-- 7 limit и skip
+db.orders.find().skip(2).limit(2)
+
+-- 8 distinct
+db.orders.distinct("products")
+
+-- 9 aggregate
+db.orders.aggregate([
+  { $group: { _id: null, totalAmount: { $sum: "$price" } } }
+])
+db.orders.aggregate([
+  { $group: { _id: null, averagePrice: { $avg: "$price" } } }
+])
+db.orders.aggregate([
+  { $group: { _id: null, maxPrice: { $max: "$price" }, minPrice: { $min: "$price" } } }
+])
+
+-- 10
+db.orders.aggregate([
+  { $match: {} },
+  { $group: { _id: null, totalOrders: { $count: {} } } }
+])
+db.orders.aggregate([
+  { $match: { date: { $gte: new Date('2024-05-01'), $lte: new Date('2024-05-31') } } },
+  { $project: { _id: 0, date: 1, products: 1, price: 1 } }
+])
+db.orders.aggregate([
+  { $group: {
+    _id: {
+      date: { $dateToString: { format: "%Y-%m-%d", date: "$date" } },
+      status: "$status"
+    },
+    totalPrice: { $sum: "$price" },
+    count: { $sum: 1 }
+  }},
+  { $sort: { totalPrice: -1 }}
+])
